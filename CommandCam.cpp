@@ -153,6 +153,7 @@ int main(int argc, char **argv)
 				// Trim inverted commas if present and copy
 				// provided string into filename char array
 				if (char_buffer[0] == '"')
+
 				{
 					strncat(filename, char_buffer, strlen(char_buffer)-2);
 				}
@@ -404,7 +405,7 @@ int main(int argc, char **argv)
 	
 	// Connect up the filter graph's capture stream
 	hr = pBuilder->RenderStream(
-		&PIN_CATEGORY_CAPTURE, &MEDIATYPE_Video,
+		&PIN_CATEGORY_STILL, &MEDIATYPE_Video,
 		pCap,  pSampleGrabberFilter, pNullRenderer);
 	if (hr != S_OK)
 		exit_message("Could not render capture video stream", 1);
